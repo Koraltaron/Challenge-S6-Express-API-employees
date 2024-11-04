@@ -1,24 +1,53 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
-const sampleEmployee = {
-  name: {
 
-    first: "Charlie",
+app.use(cors({origin: ["http://localhost:5173"]}));
 
-    last: "Thompson",
-
+const sampleEmployee = [
+  {
+    name: {
+      first: "Pouet",
+      last: "Classius",
+    },
+    email: "pouet.classius.com",
+    picture: {
+      medium: "https://randomuser.me/api/portraits/men/59.jpg",
+    },
   },
-
-  email: "charlie.thompson@example.com",
-
-  picture: {
-
-    medium: "https://randomuser.me/api/portraits/med/men/40.jpg",
-
+  {
+    name: {
+      first: "Magali",
+      last: "Patapon",
+    },
+    email: "magali.patapon@example.com",
+    picture: {
+      medium: "https://randomuser.me/api/portraits/women/92.jpg",
+    },
   },
+  {
+    name: {
+      first: "Visigoth",
+      last: "Chaumière",
+    },
+    email: "visigoth.petite-chaumière@example.com",
+    picture: {
+      medium: "https://randomuser.me/api/portraits/men/23.jpg",
+    },
+  },
+  {
+    name: {
+      first: "Saunia",
+      last: "Duval",
+    },
+    email: "Duval.chaudière-gaz@example.com",
+    picture: {
+      medium: "https://randomuser.me/api/portraits/women/72.jpg",
+    },
+  }
 
-};
+];
 
 const addEmployee = (req, res) => {
   res.json({result: [sampleEmployee]});
